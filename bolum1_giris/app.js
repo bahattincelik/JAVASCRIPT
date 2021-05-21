@@ -136,3 +136,9 @@ const y = true;
 const z = undefined;
 
 console.log(x && y && z);
+
+// ** ================== TERNARY ===============
+
+const age = prompt("Yasinizi Giriniz");
+console.log("Yasiniz : " + age);
+console.log(typeof age);
