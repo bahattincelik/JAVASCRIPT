@@ -139,6 +139,18 @@ console.log(x && y && z);
 
 // ** ================== TERNARY ===============
 
-const age = prompt("Yasinizi Giriniz");
-console.log("Yasiniz : " + age);
-console.log(typeof age);
+const name1 = prompt("Adinizi Giriniz");
+const age = +prompt("Yasinizi Giriniz");
+
+age >= 18
+  ? console.log(`${name1} ehliyet alabilir `)
+  : console.log(`${name1} ehliyet alamaz `);
+
+//? const age = Number(prompt("Yasinizi Giriniz"));
+// console.log("Yasiniz : " + age);
+// console.log(typeof age);
+
+const result =
+  age >= 18 ? `${name1} ehliyet alabilir ` : `${name1} ehliyet alamaz `;
+
+console.log(result);
