@@ -74,4 +74,65 @@ const kola = 5;
 let toplamFiyat = sucuk + sakiz + kola;
 toplamFiyat++;
 toplamFiyat += 50;
-console.log(toplamFiyat, kola); //Birden fazla degiskenin degerini yazdirmak icin , kullanilir
+console.log(toplamFiyat, kola); // ! Birden fazla degiskenin degerini yazdirmak icin , kullanilir
+console.log("TOPLAM : ", toplamFiyat);
+
+// ! + operatoru string birlestirme islemi de gerceklestirir
+const ad = "Can";
+const soyAd = "Canan";
+console.log(ad + " " + soyAd);
+
+const s1 = 7,
+  s2 = "7";
+
+console.log(s1 + s2);
+
+const ad1 = "Mesut";
+const yas = 55;
+
+//Template
+console.log("Benim Adim " + ad1 + " " + "yasim " + " " + yas + " dir");
+console.log(`Benim Adim ${ad1} yasim ${yas} dir`);
+
+const yil = 2021;
+const dogumTarihi = 1980;
+const sene = yil - dogumTarihi;
+console.log("YAŞ: " + sene);
+// ! console.log("YAŞ: " + yıl - dogumTarihi);//! hata
+console.log("YAŞ: " + (yil - dogumTarihi));
+console.log(`YAS: ${yil - dogumTarihi} `); // *Template Literal ile yazdirma.
+
+const taban = 2;
+const us = 3;
+
+const sonuc = taban ** us; //? Us alma operatoru
+console.log(sonuc);
+
+//Mod Alma %
+
+const sayi = 123;
+const birler = sayi % 10;
+const onlar = Math.floor(sayi / 10) % 10;
+const yuzler = Math.floor(sayi / 100);
+console.log(
+  `Sayi : ${sayi} => Birler Basamagi ${birler}, Onlar Basamagi ${onlar}, Yuzler Basamagi ${yuzler}`
+);
+console.log("Birler : " + birler);
+console.log("Onlar : " + onlar);
+console.log("Yuzler : " + yuzler);
+
+// * KARSILASTIRMA OPERATORLERI
+// ! 3'lu karsilastirma operatoru kullanildiginda hem veri tipi hem de icerik kontrolu yapilir
+const sayi1 = 100;
+const sayi2 = "100";
+
+console.log(typeof sayi1, typeof sayi2);
+
+console.log(sayi1 == sayi2);
+console.log(sayi1 === sayi2);
+
+const x = true;
+const y = true;
+const z = undefined;
+
+console.log(x && y && z);
