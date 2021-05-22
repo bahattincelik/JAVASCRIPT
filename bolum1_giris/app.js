@@ -154,3 +154,6 @@ const result =
   age >= 18 ? `${name1} ehliyet alabilir ` : `${name1} ehliyet alamaz `;
 
 console.log(result);
+
+const sayi4 = 41;
+console.log(String(sayi4), sayi4);
