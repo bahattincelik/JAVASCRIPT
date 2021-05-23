@@ -88,3 +88,14 @@ const bilgiVer = (ad, soyad, dogum) =>
   `Adim ${ad}, Soyadim ${soyad} ve yasim ${2021 - dogum}`;
 
 console.log(bilgiVer("Mehmet", "Cakmak", 1989));
+
+//*Ornek: Silindirin hacmini hesaplayan bir fonks
+
+const r = prompt("Yaricapi giriniz");
+const h = prompt("Yuksekligi giriniz");
+
+const hacimHesapla = (r, h) => Math.PI * r * r * h;
+
+console.log(`Silindirin Hacmi :  ${Math.round(hacimHesapla(r, h))}`); //*En yakin sayiya yuvarlar.
+
+console.log(`Silindirin Hacmi :  ${hacimHesapla(r, h).toFixed(2)}`); //*Virgulden sonra 2 basamak alir
