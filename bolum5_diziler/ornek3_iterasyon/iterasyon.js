@@ -45,7 +45,7 @@
 //   yazı += i + ” “; // i:  dizinin i. elemani demektir.
 // }
 // console.log(yazı);
-//  =========   FOREACH DONGUSU ===========
+//  =========   FOREACH METODU ===========
 let ogrenciler = ["John", "Ali", "Can"];
 function yazdır(a) {
   console.log(a);
@@ -67,6 +67,78 @@ console.log(toplam);
 document.querySelector(".toplam").innerHTML = `${toplam} TL`;
 // fiyatlar dizisinde her bir fiyata %10 zam yapalım.
 // const fiyatlar = [200, 300, 125, 450, 333, 123];
-const yenifiyat = [];
-fiyatlar.forEach((d, i) => (yenifiyat[i] = (d * 1.1).toFixed(2)));
-console.log(yenifiyat);
+let toplamFiyat = 0;
+let zamliFiyatlar = [];
+fiyatlar.forEach((deger, indis) => {
+  zamliFiyatlar[indis] = (deger * 1.1).toFixed(2);
+  toplamFiyat += Number(zamliFiyatlar[indis]);
+});
+console.log(zamliFiyatlar);
+console.log(toplamFiyat);
+
+//  =========   MAP METODU ===========
+//Ornek : Dizinin her bir elemaninin 2 katini aliniz.
+const rakamlar = [3, 5, 3, 2, 6, 7, 9];
+
+const ikiKat = rakamlar.map((x) => x * 2);
+
+console.log(ikiKat, rakamlar);
+
+// Örnek : isimler dizisin içerisindeki her ismi büyük harf olarak yeni bir diziye saklayalım.
+const isimler = [
+  "Ahmet",
+  "mehmet",
+  "ismet",
+  "SAFFET",
+  "Can",
+  "Canan",
+  "Cavidan",
+];
+
+// map() metodu normal şartlarda bir dizi döndürür.
+const buyuk = isimler.map((isim) => isim.toUpperCase());
+buyuk.forEach((isim) => console.log(isim));
+
+//Pipeline
+// map() metodudundan sonra eğer bir terminal işlemi (forEach gibi) kullanılırsa map() metodu bir dizi döndürmez.
+isimler.map((isim) => isim.toUpperCase()).forEach((isim) => console.log(isim));
+
+//Dolar, Euro parite hesap
+tlFiyatlar = [120, 340, 550, 245, 322.5, 789];
+
+const dolarKur = document.querySelector(".dolar");
+const euroKur = document.querySelector(".euro");
+const dolar = document.querySelector(".dolar-fiyat");
+const euro = document.querySelector(".euro-fiyat");
+
+dolarKur.onchange = function () {
+  dolarKur.value < 0
+    ? alert("Kur 0 dan kucuk olamaz")
+    : (dolar.innerHTML = tlFiyatlar.map((tl) =>
+        Math.round(tl / dolarKur.value)
+      ));
+};
+
+euroKur.onchange = function () {
+  euroKur.value < 0
+    ? alert("Kur 0 dan kucuk olamaz")
+    : (euro.innerHTML = tlFiyatlar.map((tl) => Math.round(tl / euroKur.value)));
+};
+
+//tlFiyatlar dizisindeki urun fiyatlarinin 250 Tl altinda olanlara %10 zam, ustunde olanlara %20 zam yapilmak isteniyor.
+
+//1. urunun zamli fiyati 110 TL
+const zamliTLFiyatlar = tlFiyatlar.map((deger, indis) => {
+  if (deger < 250) {
+    return `${indis + 1}. urunun zamli fiyati : ${deger * 1.1} `;
+  } else {
+    return `${indis + 1}. urunun zamli fiyati : ${deger * 1.2} `;
+  }
+});
+
+document.querySelector(".zamli-fiyat").innerHTML = zamliTLFiyatlar;
+
+console.log(zamliTLFiyatlar);
+
+const kucuk250 = tlFiyatlar.filter((d) => d < 250);
+console.log(kucuk250);
