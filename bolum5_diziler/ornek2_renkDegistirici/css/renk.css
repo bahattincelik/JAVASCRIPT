@@ -1,0 +1,17 @@
+.container {
+  width: 100vw;
+  height: 100vh; /*viewport witdh*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+.btn {
+  padding: 1rem;
+  background-color: bisque;
+  border-radius: 15px;
+}
+.btn:hover {
+  background-color: coral;
+}

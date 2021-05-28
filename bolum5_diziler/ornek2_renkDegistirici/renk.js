@@ -9,6 +9,7 @@ const renkler = [
   "brown",
 ];
 
+
 const rastgeleSayi = Math.floor(Math.random() * renkler.length);
 
 document.querySelector("body").style.backgroundColor = renkler[rastgeleSayi];
