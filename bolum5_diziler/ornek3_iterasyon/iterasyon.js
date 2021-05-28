@@ -140,5 +140,12 @@ document.querySelector(".zamli-fiyat").innerHTML = zamliTLFiyatlar;
 
 console.log(zamliTLFiyatlar);
 
+// tlFiyatlar listesinde fiyatı 250 TL den az olanlari ayri bir diziye saklayalim.
 const kucuk250 = tlFiyatlar.filter((d) => d < 250);
 console.log(kucuk250);
+//fiyati 350 küçük olanlari yazdiriniz.
+tlFiyatlar.filter((d) => d < 350).forEach((x) => console.log(x));
+// Küçükten büyüğe sıralama
+console.log(tlFiyatlar.sort((a, b) => a - b));
+// Büyükten küçüğe  sıralama
+console.log(tlFiyatlar.sort((a, b) => b - a));
