@@ -262,3 +262,11 @@ const buyukDortBin = maaslar
   .filter((x) => x >= 4000)
   .reduce((x, y) => x + y, 0);
 console.log(buyukDortBin);
+
+//Maasi ortalamanin altinda olanlara %20 zam,
+const ortalamaMaas = maaslar.reduce((x, y) => x + y, 0) / maaslar.length;
+
+const yeniMaaslar = maaslar
+  .filter((m) => m <= ortalamaMaas)
+  .map((x) => x * 1.2);
+console.log(yeniMaaslar);
