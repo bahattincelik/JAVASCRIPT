@@ -15,8 +15,15 @@ const diziyiListeyeEkle = function () {
     listeyeEkle(maaslar[i]);
   }
 };
+const aciklamaGuncelle = function (dizi) {
+  const aciklama = document.querySelector(".aciklama");
+  const yeniMaaslar = dizi.join(" ");
+  aciklama.innerHTML = `Maaslar : ${yeniMaaslar} <br>
+  Toplam Maas : ${dizi.reduce((x, y) => x + y, 0)}`;
+};
 
 diziyiListeyeEkle();
+aciklamaGuncelle(maaslar);
 
 document.querySelector(".ekle").onclick = function () {
   const satir = document.querySelector(".input-liste");
@@ -29,6 +36,7 @@ document.querySelector(".ekle").onclick = function () {
     listeyeEkle(satir.value);
     //islemler bittikten sonra inputta kalan veriyi sil
     satir.value = "";
+    aciklamaGuncelle(maaslar);
   }
 };
 
@@ -39,5 +47,32 @@ document.querySelector(".sil").onclick = function () {
     maaslar.pop();
     const liste = document.querySelector(".liste");
     liste.removeChild(liste.lastElementChild);
+    aciklamaGuncelle(maaslar);
+  }
+};
+
+document.querySelector(".ara").onclick = function () {
+  const satir = document.querySelector(".input-liste");
+  if (!satir.value) {
+    alert("Aranacak maas limitini giriniz");
+  } else {
+    const filtreli = maaslar.filter((m) => m <= satir.value);
+    if (filtreli.length == 0) {
+      alert("Aradiginiz kriterlerde maas bulunamadi");
+    } else {
+      aciklamaGuncelle(filtreli);
+    }
+  }
+  satir.value = "";
+};
+
+document.querySelector(".input-liste").onkeydown = (e) => {
+  console.log(e);
+  if (e.keyCode === 13) {
+    //Enter tusunu basildi ise
+    document.querySelector(".ekle").onclick();
+  }
+  if (e.keyCode === 46) {
+    document.querySelector(".sil").onclick();
   }
 };
