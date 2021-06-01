@@ -122,6 +122,19 @@ const buyukHarf = kisiler.map((x) => {
 console.log(buyukHarf);
 // Yaşı 25' eşit veya küçük olanların adlarını yazdıran kodu yazınız.
 
+kisiler.filter((x) => x.yas <= 25).forEach((x) => console.log(x.ad));
 // Mesleği developer olanların isim ve yaşlarını bir diziye kaydediniz.
+const developer = kisiler
+  .filter((x) => x.meslek == "developer")
+  .map((x) => {
+    return {
+      ad: x.ad,
+      yas: x.yas,
+    };
+  });
 
+console.log(developer);
 // kisilerin ortalama yasini hesaplayiniz.
+const ortalamaYas =
+  kisiler.reduce((toplam, kisi) => toplam + kisi.yas, 0) / kisiler.length;
+console.log(ortalamaYas);
